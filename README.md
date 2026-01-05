@@ -90,22 +90,9 @@ java airplane_war
 
 ```
 
-
-
-## 📸 Screenshots (遊戲截圖)
-
-*(Please replace these placeholder links with actual screenshots of your game!)*
-
-| Main Menu | Combat Scene | Level Complete |
-| --- | --- | --- |
-|  |  |  |
-
 ## 👥 Authors (開發團隊)
 
 **Team Binary Star** (NTUE CS Department)
 
 * **Athena Wang (王暄菡)** - Lead Developer, Physics Engine, Gameplay Logic
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
