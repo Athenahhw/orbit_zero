@@ -1,98 +1,231 @@
+# ORBIT ZERO 🚀
 
-# VOID VECTOR: Solar Odyssey 🚀
+> A Java-based 2D space shooter that combines arcade combat, Newtonian-style movement, procedural graphics, and a journey through the Solar System.
 
-> **A procedural space shooter built from scratch using Java 2D API.** > 一款完全使用 Java 原生圖形庫打造的物理慣性射擊遊戲。
+## Project Purpose
 
-## 📖 Introduction (專案簡介)
+**ORBIT ZERO** is a Java final project designed to explore how a complete 2D game can be built with the standard Java platform and without external art assets.
 
-**VOID VECTOR** is a vertical scrolling shooter (STG) that simulates Newtonian physics in a 2D environment. Unlike traditional arcade shooters, the spaceship in this game possesses **inertia and momentum**, requiring players to master the controls of thrust and rotation.
+The project focuses on:
 
-The game features a complete solar system journey, from Neptune to the Sun, with dynamic difficulty scaling, branching storylines (Earth vs. Moon), and a custom particle system.
+- Applying object-oriented programming to game entities and game states.
+- Simulating acceleration, deceleration, rotation, and inertia-like movement.
+- Creating graphics, particle effects, and sound effects programmatically.
+- Designing a multi-level space adventure with progression and a branching Earth/Moon route.
+- Practicing real-time input handling, collision detection, rendering, and game-loop design.
 
-這是一個模擬牛頓物理慣性的縱向捲軸射擊遊戲。不同於傳統街機遊戲，本作的飛船具有**慣性與動量**，玩家需要精確控制推進器與轉向。遊戲包含完整的太陽系關卡、動態難度調整以及分支路線系統。
+## Technologies Used
 
-## ✨ Key Features (核心特色)
+- **Java**
+- **Java Swing** for the application window and UI container.
+- **Java 2D API (`Graphics2D`)** for procedural rendering.
+- **Java AWT** for keyboard input, geometry, colors, gradients, and transforms.
+- **Java Sound API (`javax.sound.sampled`)** for generated shooting and hit effects.
+- **Object-oriented programming** with nested classes for bullets, asteroids, enemies, particles, and stars.
+- **Finite state machine design** for menu, gameplay, game-over, level-complete, and victory states.
 
-* **🕹️ Physics-Based Movement**: Implements acceleration, deceleration, and angular momentum for realistic zero-gravity handling.
-* (實作加速度與角動量，模擬真實的無重力操控感)
+No API keys, passwords, or personal information are required by this project.
 
+## Main Features
 
-* **🎨 Code-Generated Graphics**: No external sprites used. All assets (ships, asteroids, particles) are drawn in real-time using `java.awt.Graphics2D` geometry.
-* (不使用外部貼圖，所有畫面皆由程式碼幾何運算即時繪製)
+- **Physics-based spaceship movement**
+  - Acceleration and braking.
+  - Rotation using the left and right arrow keys.
+  - Screen wraparound when the spaceship leaves the play area.
 
+- **Combat system**
+  - Fire projectiles with the `SPACE` key.
+  - Destroy asteroids and track shots, hits, and accuracy.
+  - Asteroids split into smaller objects when destroyed.
 
-* **🤖 Smart Enemy AI**: Enemies track player position, calculate intercept angles, and adjust engagement speed based on difficulty levels.
-* (敵人具備追蹤與攔截算法，並隨難度動態調整行為)
+- **Procedural visuals**
+  - Spaceship, asteroids, bullets, planets, stars, and UI elements are drawn at runtime.
+  - Particle effects are used for engine exhaust and explosions.
+  - Saturn includes a special ring-like small-asteroid effect.
 
+- **Solar System progression**
+  - Travel through a sequence of destinations including Neptune, Uranus, Saturn, Jupiter, Mars, Earth, the Moon, Venus, Mercury, and the Sun.
+  - Targets become available after the area has been cleared for a period of time.
 
-* **🌌 Dynamic Particle System**: Custom engine for rendering explosions, engine exhaust, and starfields with alpha blending.
-* (自製粒子系統，處理爆炸、尾焰與星空背景的透明度混合)
+- **Branching route**
+  - At the Earth choice level, the player can travel to the Moon or continue toward Earth.
 
+- **Game states and progression**
+  - Main menu.
+  - Playing state.
+  - Level completion screen.
+  - Game-over screen with statistics.
+  - Victory screen with collected journey souvenirs.
 
-* **🗺️ Branching Level Design**: Unique "Earth Choice" mechanic allowing players to choose their path (Moon Base or Earth Re-entry).
-* (分支路線設計，玩家可選擇前往月球或返回地球)
+- **Programmatically generated audio**
+  - Shooting and hit sounds are synthesized from sine waves instead of external audio files.
 
-
-
-## 🛠️ Technical Highlights (技術細節)
-
-This project demonstrates proficiency in **Object-Oriented Programming (OOP)** and **Computational Geometry**:
-
-* **Polymorphism**: Unified entity management for `Asteroid`, `Bullet`, and `Enemy` objects.
-* (運用多型統一管理所有遊戲物件)
-
-
-* **Vector Math**: Used for calculating trajectories, rotation matrices, and collision detection (`Math.sin`, `Math.cos`, `Math.atan2`).
-* (大量運用向量數學計算軌跡、旋轉矩陣與碰撞判定)
-
-
-* **Audio Synthesis**: Sound effects are generated programmatically by manipulating byte arrays of sine waves, removing dependencies on audio files.
-* (程式化音效合成，直接操作 Byte Array 生成正弦波音效)
-
-
-* **State Management**: Finite State Machine (FSM) controlling Game Menu, Playing, Victory, and Game Over states.
-* (使用有限狀態機管理遊戲流程)
-
-
-
-## 🎮 How to Play (操作說明)
+## Controls
 
 | Key | Action |
 | --- | --- |
-| **↑ (Up Arrow)** | Thrust / Accelerate (推進) |
-| **↓ (Down Arrow)** | Brake / Decelerate (減速) |
-| **← / →** | Rotate Ship (旋轉機身) |
-| **SPACE** | Fire Photon Torpedoes (射擊) |
-| **ENTER** | Start / Next Level (開始/下一關) |
+| `Enter` | Start the game, continue to the next level, or restart after victory |
+| `Up Arrow` | Accelerate / thrust |
+| `Down Arrow` | Brake / move backward |
+| `Left Arrow` | Rotate left |
+| `Right Arrow` | Rotate right |
+| `Space` | Fire |
+| `R` | Restart after game over |
+| `C` | Continue from the current level after game over |
 
-## 🚀 Installation & Run (安裝與執行)
+## Installation and Running
 
-Make sure you have **Java Development Kit (JDK) 8** or higher installed.
+### Requirements
 
-1. **Clone the repository**
+- **JDK 8 or later**
+- A desktop environment capable of running Java Swing
+- A keyboard for gameplay
+
+### Clone the repository
+
 ```bash
-git clone https://github.com/YourUsername/Void-Vector.git
-cd Void-Vector
-
+git clone https://github.com/Athenahhw/orbit_zero.git
+cd orbit_zero
 ```
 
+### Compile
 
-2. **Compile the code**
+The main source file is located at the repository root:
+
 ```bash
 javac airplane_war.java
-
 ```
 
+### Run
 
-3. **Run the game**
 ```bash
 java airplane_war
-
 ```
 
-## 👥 Authors (開發團隊)
+The game opens in a maximized Swing window. Press `Enter` on the title screen to begin.
 
-**Team Binary Star** (NTUE CS Department)
+### Clean compiled files
 
-* **Athena Wang (王暄菡)** - Lead Developer, Physics Engine, Gameplay Logic
+The repository may contain generated `.class` files. To remove locally generated class files before recompiling:
 
+```bash
+find . -name "*.class" -delete
+```
+
+On Windows PowerShell, use:
+
+```powershell
+Get-ChildItem -Recurse -Filter *.class | Remove-Item
+```
+
+## System Architecture
+
+The game is implemented as a single Java application with a real-time update and rendering loop.
+
+```mermaid
+flowchart TD
+    A[Main Method] --> B[Create Swing JFrame]
+    B --> C[Create airplane_war JPanel]
+    C --> D[Start javax.swing.Timer]
+    D --> E{Current GameState}
+
+    E -->|MENU| F[Draw Menu]
+    E -->|PLAYING| G[Read Keyboard Input]
+    G --> H[Update Player Movement]
+    H --> I[Update Bullets, Asteroids, Stars, Particles]
+    I --> J[Check Collisions and Objectives]
+    J --> K[Draw Gameplay Scene]
+
+    J -->|Player Collision| L[GAME_OVER]
+    J -->|Reach Target| M[LEVEL_COMPLETE]
+    M --> N[Advance Level or Choose Earth/Moon Route]
+    N --> E
+    J -->|Reach Sun| O[WIN]
+
+    F --> E
+    K --> E
+    L --> P[Restart or Continue]
+    O --> Q[Restart Mission]
+    P --> E
+    Q --> E
+```
+
+### Main Components
+
+- **Game state manager**: Controls the menu, active gameplay, level transitions, game over, and victory screens.
+- **Input manager**: Uses `KeyListener` to track movement, firing, restart, and level progression commands.
+- **Game update loop**: A Swing `Timer` triggers updates approximately every 16 milliseconds.
+- **Entity collections**: `ArrayList` objects manage bullets, asteroids, enemies, particles, stars, and Saturn's small asteroids.
+- **Collision and objective system**: Detects projectile impacts, player collisions, target arrival, and level completion.
+- **Rendering system**: Uses `Graphics2D`, gradients, alpha blending, transforms, and geometric shapes to draw each frame.
+- **Audio system**: Generates short sound effects with `AudioFormat` and `SourceDataLine`.
+
+## App Screen / Demo
+
+The application currently renders its screens directly from Java code rather than using external image files. The main playable flow is:
+
+1. **Title screen** — displays the `ORBIT ZERO` title and controls.
+2. **Gameplay screen** — shows the spaceship, stars, asteroids, bullets, particles, target planet, progress bar, and status panel.
+3. **Level complete screen** — displays the newly collected souvenir and the next-level prompt.
+4. **Game-over screen** — displays destroyed asteroids, total shots, accuracy, and the reached level.
+5. **Victory screen** — displays the collected journey souvenirs after reaching the Sun.
+
+To see the live demo, compile and run the project using the commands above. The visual implementation can be inspected in [`airplane_war.java`](airplane_war.java), especially the `drawMenu`, `drawGame`, `drawGameOver`, `drawLevelComplete`, and `drawWin` methods.
+
+## My Contributions
+
+My main responsibilities in this project included:
+
+- Designing and implementing the core Java Swing game application.
+- Building the real-time game loop and game-state flow.
+- Implementing spaceship movement, acceleration, rotation, braking, and screen wraparound.
+- Developing projectile, asteroid, collision detection, and level-progression logic.
+- Creating procedural graphics with Java 2D instead of relying on external sprites.
+- Implementing particle effects for engine exhaust and explosions.
+- Designing the Solar System route and Earth/Moon branching level.
+- Implementing the HUD, menus, game-over screen, level-complete screen, and victory screen.
+- Generating basic sound effects programmatically with the Java Sound API.
+- Tracking gameplay statistics such as shots fired, hits, accuracy, and destroyed asteroids.
+
+## Known Limitations
+
+- The game is currently contained mainly in one Java source file, which makes long-term maintenance more difficult.
+- There is no build tool configuration such as Maven or Gradle.
+- There are no automated unit tests or integration tests yet.
+- The game currently supports keyboard input only.
+- The visuals are procedural and intentionally simple; there are no external sprite or animation assets.
+- Audio behavior may vary across operating systems and audio devices.
+- Enemy behavior is present in the code structure but is not yet integrated into a complete enemy spawning and combat loop.
+- The game has limited configuration options for resolution, difficulty, audio, and controls.
+- The current collision system uses simple distance checks rather than more precise shape-based collision detection.
+
+## Future Improvements
+
+- Separate the application into packages and individual classes such as `Player`, `Enemy`, `Asteroid`, `Projectile`, `ParticleSystem`, `Renderer`, and `GameStateManager`.
+- Add Maven or Gradle support for easier compilation and dependency management.
+- Add automated tests for movement, collisions, score calculation, and level transitions.
+- Improve enemy spawning, enemy projectiles, and enemy AI behaviors.
+- Add a pause menu, settings screen, configurable controls, and volume controls.
+- Add save data for progress and high scores.
+- Improve collision accuracy with geometric bounds or hitbox components.
+- Add more visual effects, animations, and accessibility options.
+- Package the game as an executable JAR or native desktop application.
+- Add screenshots or a recorded gameplay demo to the repository.
+
+## Project Structure
+
+```text
+orbit_zero/
+├── airplane_war.java       # Main game source file
+├── src/                     # Additional source directory, if extended in future versions
+├── README.md                # Project documentation
+└── *.class                  # Generated Java bytecode files, when compiled
+```
+
+## Privacy and Security
+
+This project does not require API keys, passwords, environment secrets, or personal data. Do not commit credentials, private configuration files, or personal information to the repository.
+
+## License
+
+No license has been specified for this repository yet. Add a license file if you plan to distribute or reuse the project publicly.
